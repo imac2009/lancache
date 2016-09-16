@@ -10,7 +10,7 @@ OS: Debian 8.5 x64 (Jessie)
 
 If you are to lazy to read below you can use the script I created for this: https://github.com/bntjah/lc-installer (warning might contain bugs! So proceed on your own accord!)
 
-	1) apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev libreadline-dev libncurses5-dev git libssl-dev
+	1) apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev libreadline-dev libncurses5-dev git libssl-dev bind9
 	2) nano /etc/dhcp/dhclient.conf
 	- 2.1 Add the lines: prepend domain-name-servers 8.8.8.8, 8.8.4.4;
 	3) git clone -b master http://github.com/imac2009/lancache
@@ -115,14 +115,29 @@ If you are to lazy to read below you can use the script I created for this: http
 	12) Copy the conf folder and contents (where you originally git cloned it to in step 4) to /usr/local/nginx/conf/
 		 cp -R ~/lancache/conf /usr/local/nginx/
 	13) Copy the Lancache file from init.d/ to /etc/init.d/ by:
-		 cp -R lancache /etc/init.d/lancache
-	14) Make it an executable:
+		 cp -R ~/lancache/init.d/lancache /etc/init.d/
+	14) Make it executable:
 		 chmod +x /etc/init.d/lancache
 	15) Put it in the standard Boot:
 		 update-rc.d lancache defaults
 	16) Copy limits.conf to /etc/security/limits.conf 
+	
+	Copy preconfigured bind configs
+		cp -R ~/lancache/bind/ /etc/bind/
+		
+	Copy preconfigured hosts file
+		cp -R ~/lancache/hosts /etc/hosts
+	
+	
+	
+	
 	17) Start Lancache / Nginx by:
 		 /etc/init.d/lancache start
+		 
+		 
+		 
+		 
+		 Additional
 	18) This step is extra but adviced for passing through HTTPS traffic
 		18.1) git clone https://github.com/dlundquist/sniproxy
 		18.2) nano /etc/sniproxy.conf
@@ -136,7 +151,7 @@ If you are to lazy to read below you can use the script I created for this: http
 		-A.2  nload -U G - u M -i 102400 -o 102400
 	Optional B) Monitor Network Usage Through iftop
 		-B.1  apt-get install iftop -y
-		-B.2  iftop -i eth1
-		Note ETH1 is the Interface I've defined for Lancache to use
+		-B.2  iftop -i eth0
+		Note ETH0 is the Interface I've defined for Lancache to use
 		
 Please note that this is how my setup runs on Debian x64 with ZFS configured.
