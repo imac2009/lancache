@@ -1,4 +1,4 @@
-LAN-Cache v1.1.3
+LAN-Cache v1.1.3 GnB-LAN internal 
 ==============
 
 Based off work of https://gitlab.com/frag-o-matic/lan-cache
@@ -13,7 +13,7 @@ If you are to lazy to read below you can use the script I created for this: http
 	1) sudo apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev libreadline-dev libncurses5-dev git libssl-dev
 	2) sudo nano /etc/dhcp/dhclient.conf
 	- 2.1 Add the lines: prepend domain-name-servers 8.8.8.8, 8.8.4.4;
-	3) git clone -b master http://github.com/bntjah/lancache
+	3) git clone -b master http://github.com/imac2009/lancache
 	4) curl http://nginx.org/download/nginx-1.11.3.tar.gz | tar zx
 	5) ./configure --with-http_ssl_module --with-http_slice_module
 	6) make
@@ -24,71 +24,70 @@ If you are to lazy to read below you can use the script I created for this: http
 		# Ip used for STEAM caching
 		auto eth0:1
 		iface eth0:1 inet static
-		address 10.0.1.11
-		netmask 255.255.0.0
+		address 192.168.202.4
+		netmask 255.255.252.0
 		
 		# Ip used for RIOT caching
 		auto eth0:2
 		iface eth0:2 inet static
-		address 10.0.1.12
-		netmask 255.255.0.0
+		address 192.168.202.5
+		netmask 255.255.252.0
 		
 		# Ip used for Blizzard caching
 		auto eth0:3
 		iface eth0:3 inet static
-		address 10.0.1.13
-		netmask 255.255.0.0
+                address 192.168.202.6
+		netmask 255.255.252.0
 		
 		# Ip used for Hirez caching
 		auto eth0:4
 		iface eth0:4 inet static
-		address 10.0.1.14
-		netmask 255.255.0.0
+		address 192.168.202.7
+		netmask 255.255.252.0
 
 		# Ip used for Origin caching	
 		auto eth0:5
 		iface eth0:5 inet static
-		address 10.0.1.15
-		netmask 255.255.0.0
+		address 192.168.202.8
+		netmask 255.255.252.0
 		
 		# Ip used for Sony caching
 		auto eth0:6
 		iface eth0:6 inet static
-		address 10.0.1.16
-		netmask 255.255.0.0
+		address 192.168.202.9
+		netmask 255.255.252.0
 		
 		# Ip used for Microsoft caching
 		auto eth0:7
 		iface eth0:7 inet static
-		address 10.0.1.17
-		netmask 255.255.0.0
+		address 192.168.202.10
+		netmask 255.255.252.0
 		
 		# Ip used for Tera caching
 		auto eth0:8
 		iface eth0:8 inet static
-		address 10.0.1.18
-		netmask 255.255.0.0
-
+		address 192.168.202.11
+		netmask 255.255.252.0
+        
 		# Ip used for GOG caching
 		auto eth0:9
 		iface eth0:9 inet static
-		address 10.0.1.19
-		netmask 255.255.0.0
+		address 192.168.202.12
+		netmask 255.255.252.0
 
 		# Ip used for ArenaNetworks caching
 		auto eth0:10
 		iface eth0:10 inet static
-		address 10.0.1.20
-		netmask 255.255.0.0
+		address 192.168.202.13
+		netmask 255.255.252.0
 
 		# Ip used for WarGaming caching
 		auto eth0:11
 		iface eth0:11 inet static
-		address 10.0.1.21
-		netmask 255.255.0.0
-
-	Note to self: Should make a script for the Step 10)
-	hosts file, bind config and necessary individual edits to db.* files should be mentioned.
+		address 192.168.202.14
+		netmask 255.255.252.0
+        
+    
 	10) Create the user lancache
 		sudo adduser --system --no-create-home lancache
 		sudo addgroup --system lancache
