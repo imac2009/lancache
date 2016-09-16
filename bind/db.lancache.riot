@@ -4,14 +4,14 @@
 ; Instead, copy it, edit named.conf, and use that copy.
 ;
 $TTL	86400
-@	IN	SOA	Bender-VM. 192.168.1.1 (
+@	IN	SOA	LanCache. 192.168.202.3 (
 			      1		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
 			  86400 )	; Negative Cache TTL
 ;
-@	IN	NS	Bender-VM.
+@	IN	NS	LanCache.
 
-@	IN	A	192.168.1.92
-*	IN	A	192.168.1.92
+@	IN	A	192.168.202.5
+*	IN	A	192.168.202.5
